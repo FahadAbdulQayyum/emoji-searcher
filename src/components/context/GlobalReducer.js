@@ -3,7 +3,11 @@ const GlobalReducer = (state, action) => {
         case 'ADD_TODO': {
             return {
                 ...state,
-                todo: [...state.todo, action.payload]
+                // todo: [...state.todo, action.payload]
+                // emoji: state.emoji.filter(v=>v.slug.includes(action.payload))
+                searchEmoji: state.emoji.filter(v=>v.slug.includes(action.payload) || v.group.includes(action.payload)||v.subGroup.includes(action.payload)||v.unicodeName.includes(action.payload))
+                // emoji: state.emoji.filter(v=>v.slug === action.payload)
+                // searchEmoji: state.emoji.filter(v=>v.slug === action.payload),
             }
         }
         case 'DELETE_TODO': {
@@ -19,6 +23,14 @@ const GlobalReducer = (state, action) => {
             return {
                 ...state,
                 todo: newArr,
+            }
+        }
+        case 'ADD_EMOJI': {
+            console.log('ADD_EMOJI')
+            return {
+                ...state,
+                emoji: action.payload,
+                loading:false
             }
         }
         default: {
