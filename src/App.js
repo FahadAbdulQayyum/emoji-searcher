@@ -1,11 +1,11 @@
 import './App.css';
-import TodoApp from './components/todoApp/TodoApp';
+import EmojiApp from './components/emojiApp/EmojiApp';
 
 function App() {
   return (
     <div
       className='h-screen flex items-center justify-center'>
-      <TodoApp />
+      <EmojiApp />
     </div>
   )
 }
